@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+// var mongoose = require('mongoose');
+// var Schema = mongoose.Schema;
 
 const { Schema, model } = require('mongoose');
 
@@ -64,7 +64,16 @@ var reactionSchema = new Schema({
         default: Date.now,
         get: (timestamp) => dateFormat(timestamp)
     }
-});
+},
+{
+    toJSON: {
+        virtuals: true,
+        getters: true
+    },
+    id: false
+
+}
+);
 
 reactionSchema.virtual('reactionCount')
     .get(function () {

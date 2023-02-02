@@ -1,7 +1,7 @@
 // var mongoose = require('mongoose');
 // var Schema = mongoose.Schema; 
 
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const userSchema = new Schema(
     {
@@ -93,14 +93,14 @@ var friendsSchema = new Schema({
     // }
 },
 
-{
-    toJSON: {
-        timestamps:true,
-        virtuals: true,
-        getters: true
-    },
-    id: false
-}
+// {
+//     toJSON: {
+//         timestamps:true,
+//         virtuals: true,
+//         getters: true
+//     },
+//     id: false
+// }
 );
 
 // friendsSchema.virtual('friendsCount')

@@ -1,7 +1,7 @@
 // var mongoose = require('mongoose');
 // var Schema = mongoose.Schema;
 
-const { Schema, model,Types } = require('mongoose');
+const { Schema, model } = require('mongoose');
 // const dateFormat = require("../utils/dateFormat");
 
 const thoughtSchema = new Schema({

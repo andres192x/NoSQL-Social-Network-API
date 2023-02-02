@@ -32,7 +32,7 @@
   
   ## Usage
 
-  it is used by using CRUD operations to create, read, update and delete users, thoughts, reactions and friends. Insomnia core can be used to test the routes. 
+  It is used by using CRUD operations to create, read, update and delete users, thoughts, reactions and friends. Insomnia core can be used to test the routes. 
   
   ## License
   
@@ -40,7 +40,7 @@
 
   ## Contribution
 
-  follow contributor guidelines https://www.contributor-covenant.org/
+  Follow contributor guidelines https://www.contributor-covenant.org/
 
  
   ## Questions

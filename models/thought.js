@@ -1,7 +1,8 @@
 // var mongoose = require('mongoose');
 // var Schema = mongoose.Schema;
 
-const { Schema, model } = require('mongoose');
+const { Schema, model,Types } = require('mongoose');
+// const dateFormat = require("../utils/dateFormat");
 
 const thoughtSchema = new Schema({
     thoughtText: {
@@ -10,11 +11,11 @@ const thoughtSchema = new Schema({
         minlength: 1,
         maxlength: 280
     },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp)
-    },
+    // createdAt: {
+    //     type: Date,
+    //     default: Date.now,
+    //     get: (timestamp) => dateFormat(timestamp)
+    // },
     username: {
         type: String,
         required: true
@@ -27,6 +28,7 @@ const thoughtSchema = new Schema({
     ]
 },
     {
+        timestamps:true,
         toJSON: {
             virtuals: true,
             getters: true
@@ -48,7 +50,8 @@ module.exports = Thought;
 var reactionSchema = new Schema({
     reactionId: {
         type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId()
+        default: () => new Types.ObjectId(),
+        
     },
     reactionBody: {
         type: String,
@@ -59,13 +62,14 @@ var reactionSchema = new Schema({
         type: String,
         required: true
     },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp)
-    }
+    // createdAt: {
+    //     type: Date,
+    //     default: Date.now,
+    //     get: (timestamp) => dateFormat(timestamp)
+    // }
 },
 {
+    timestamps:true,
     toJSON: {
         virtuals: true,
         getters: true
@@ -75,10 +79,10 @@ var reactionSchema = new Schema({
 }
 );
 
-reactionSchema.virtual('reactionCount')
-    .get(function () {
-        return this.reactions.length
-    });
+// reactionSchema.virtual('reactionCount')
+//     .get(function () {
+//         return this.reactions.length
+//     });
 
 const Reaction = model('Reaction', reactionSchema);
 

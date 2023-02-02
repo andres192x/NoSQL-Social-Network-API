@@ -20,13 +20,13 @@ const {
     .put(updateThoughts)
     .delete(deleteThoughts);
 
-     // /api/thougthts/:thoughtId/reactions
+     // /api/thoughts/:thoughtId/reactions
 
      router
      .route('/:thoughtId/reactions')
       .post(addReaction);
 
-    // /api/thougthts/:thoughtId/reactions/:reactionId
+    // /api/thoughts/:thoughtId/reactions/:reactionId
 
     router
     .route('/:thoughtId/reactions/:reactionId')

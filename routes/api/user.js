@@ -23,7 +23,7 @@ const {
        // /api/users/:userId/friends
 
        router
-       .route('/:userId/friends')
+       .route('/:userId/friends/:friendId')
         .post(addFriend);
   
      // /api/users/:userId/friends/:friendId

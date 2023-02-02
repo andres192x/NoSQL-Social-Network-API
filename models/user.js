@@ -111,7 +111,7 @@ var friendsSchema = new Schema({
 
 const Friends = model('Friends', friendsSchema);
 
-module.exports = Friends;
+module.exports = User;
 
 
 

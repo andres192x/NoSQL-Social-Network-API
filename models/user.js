@@ -30,7 +30,17 @@ const userSchema = new Schema(
             }
         ],
 
-}
+},
+
+// {
+//     timestamps:true,
+//     toJSON: {
+//         virtuals: true,
+//         getters: true
+//     },
+//     id: false
+
+// }
 )
 
 userSchema.virtual('friendCount')
@@ -41,4 +51,69 @@ userSchema.virtual('friendCount')
 const User = model('User', userSchema);
 
 module.exports = User;
+
+var friendsSchema = new Schema({
+    friendsId: {
+        type: Schema.Types.ObjectId,
+        default: () => new Types.ObjectId(),
+
+    },
+    friendsName: {
+        type: String,
+        required: true,
+        maxlength: 280
+    },
+    friendsEmail: {
+        type: String,
+        required: true,
+        maxlength: 280
+    },
+    friendsThoughts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Thought'
+        }
+    ],
+    friendsFriends: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    // friendsCreatedAt: {
+    //     type: Date,
+    //     default: Date.now,
+    //     get: (timestamp) => dateFormat(timestamp)
+    // },
+    // friendsUpdatedAt: {
+
+    //     type: Date,
+    //     default: Date.now,
+    //     get: (timestamp) => dateFormat(timestamp)
+    // }
+},
+
+{
+    toJSON: {
+        timestamps:true,
+        virtuals: true,
+        getters: true
+    },
+    id: false
+}
+);
+
+// friendsSchema.virtual('friendsCount')
+// .get(function() {
+//     return this.friends.length
+// }
+// );
+
+const Friends = model('Friends', friendsSchema);
+
+module.exports = Friends;
+
+
+
+
 
